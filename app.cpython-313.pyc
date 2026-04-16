@@ -1,0 +1,22 @@
+﻿class Usuario:
+    def __init__(self, nombre, documento, telefono):
+        self.__nombre = nombre
+        self.__documento = documento
+        self.__telefono = telefono
+
+    def mostrar_informacion(self):
+        print(f"Nombre: {self.__nombre}")
+        print(f"Documento: {self.__documento}")
+        print(f"Teléfono: {self.__telefono}")
+
+    def get_nombre(self):
+        return self.__nombre
+
+    def get_documento(self):
+        return self.__documento
+
+    def get_telefono(self):
+        return self.__telefono
+
+    def get_identificacion(self):
+        return self.__documento

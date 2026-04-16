@@ -1,0 +1,29 @@
+﻿class Habitacion:
+    def __init__(self, numero, piso, tipo, precio, capacidad):
+        self.__numero = numero
+        self.__piso = piso
+        self.__tipo = tipo
+        self.__precio = precio
+        self.__capacidad = capacidad
+        self.__disponible = True
+
+    def get_numero(self):
+        return self.__numero
+
+    def get_piso(self):
+        return self.__piso
+
+    def get_tipo(self):
+        return self.__tipo
+
+    def get_precio(self):
+        return self.__precio
+
+    def get_capacidad(self):
+        return self.__capacidad
+
+    def get_disponible(self):
+        return self.__disponible
+
+    def set_disponible(self, disponible):
+        self.__disponible = disponible

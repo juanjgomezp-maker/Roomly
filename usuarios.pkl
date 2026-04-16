@@ -1,0 +1,5 @@
+from Habitacion import Habitacion
+
+class Simple(Habitacion):
+    def __init__(self, numero, piso):
+        super().__init__(numero, piso, "simple", 50, 1)

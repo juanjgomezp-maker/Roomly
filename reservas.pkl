@@ -1,0 +1,51 @@
+﻿class Reserva:
+    def __init__(self, habitacion, id_usuario, fecha_entrada, fecha_salida):
+        self.__habitacion = habitacion
+        self.__id_usuario = id_usuario
+        self.__fecha_entrada = fecha_entrada
+        self.__fecha_salida = fecha_salida
+        self.__estado = "activa"
+        self.__dias_reservados = (fecha_salida - fecha_entrada).days
+        self.dias_transcurridos = 0
+        self.__costo_total = 0
+
+    def get_habitacion(self):
+        return self.__habitacion
+
+    def get_id_usuario(self):
+        return self.__id_usuario
+
+    def get_fecha_entrada(self):
+        return self.__fecha_entrada
+
+    def get_fecha_salida(self):
+        return self.__fecha_salida
+
+    def get_estado(self):
+        return self.__estado
+
+    def get_costo_total(self):
+        return self.__costo_total
+
+    def Set_dias_transcurridos(self, fecha_actual):
+        self.dias_transcurridos = (fecha_actual - self.__fecha_entrada).days
+
+    def set_estado(self):
+        if self.dias_transcurridos < 0:
+            self.__estado = "activa"
+        elif self.dias_transcurridos >= 0 and self.dias_transcurridos < self.__dias_reservados:
+            self.__estado = "en progreso"
+        elif self.dias_transcurridos >= self.__dias_reservados:
+            self.__estado = "finalizada"
+
+    def calcular_costo_total(self, precio):
+        self.__costo_total = self.__dias_reservados * precio
+        return self.__costo_total
+
+    def mostrar_informacion(self):
+        print(f"Cliente: {self.__id_usuario}")
+        print(f"Habitación: {self.__habitacion.get_numero()} ({self.__habitacion.get_tipo()})")
+        print(f"Fecha de entrada: {self.__fecha_entrada.strftime('%Y-%m-%d')}")
+        print(f"Fecha de salida: {self.__fecha_salida.strftime('%Y-%m-%d')}")
+        print(f"Estado: {self.__estado}")
+        print(f"Costo total: {self.__costo_total}$")
